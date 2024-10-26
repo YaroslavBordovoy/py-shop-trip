@@ -33,12 +33,11 @@ def shop_trip() -> None:
             print("Date: " + current_time.strftime("%d/%m/%Y %H:%M:%S"))
             print(f"Thanks, {customer.name}, for your purchase!")
             print("You have bought:")
-            print(f"{customer.product_cart.get("milk")} milks "
-                  f"for {store_prices[shop_index][0]} dollars")
-            print(f"{customer.product_cart.get("bread")} breads "
-                  f"for {store_prices[shop_index][1]} dollars")
-            print(f"{customer.product_cart.get("butter")} butters "
-                  f"for {store_prices[shop_index][2]} dollars")
+
+            for items, i in zip(customer.product_cart.items(), range(3)):
+                print(f"{items[1]} {items[0]}s for "
+                      f"{store_prices[shop_index][i]} dollars")
+
             print(f"Total cost is {store_prices[shop_index][3]} dollars")
             print("See you again!\n")
 
